@@ -1,0 +1,101 @@
+Product Demo
+https://drive.google.com/open?id=1sPg9XJYvweksCHY-tEXiXBq7SFTl_G-H
+---------------------------------------------------------------------------------------------------------------
+Product Screenshots
+
+https://drive.google.com/drive/folders/1qhfAbIJ_-o7SabyNQOGDt-QkLmBUinwq?usp=sharing
+
+-----------------------------------------------------------------------------------------------------------------
+Product Repo
+
+https://github.com/stackroute/ibm-wave4-workpro
+
+-----------------------------------------------------------------------------------------------------------------
+
+1.docker build -t filename .
+
+2.docker images
+
+3.docker rmi $(docker ps -aq)
+
+4.docker stop $(docker ps -aq)
+
+5.docker search<image>
+
+6.docker run -d filename
+
+7.docker-compose up
+
+8.docker-compose down
+
+9.docker-compose ps
+
+10.docker-compose -f docker-compose.yml up
+
+
+---------------------------------------------------------------------------------------
+Dockerfile
+
+FROM maven:3.6.0-jdk-11
+WORKDIR /app
+COPY . .
+RUN mvn clean
+RUN mvn clean package -DskipTests
+WORKDIR /app/target
+CMD ["java", "-jar", "Project-Details-0.0.1-SNAPSHOT"]
+
+
+----------------------------------------------------------------------------------------
+For Running kafka and zookeeper
+
+docker run --network=host -e KAFKA_ZOOKEEPER_CONNECT=127.0.0.1:2181 -e KAFKA_ADVERTISED_HOST_NAME=127.0.0.1 -e KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://127.0.0.1:9092 -e  KAFKA_MESSAGE_MAX_BYTES=1000000000 -d wurstmeister/kafka
+
+
+docker run --network=host zookeeper
+
+--------------------------------------------------------------------------------------------
+Run Spring boot application
+
+mvn spring-boot:run
+
+
+-----------------------------------------------------------------------------------------------
+Creating certificate
+
+https://medium.com/@richardr39/using-angular-cli-to-serve-over-https-locally-70dab07417c8
+https://askubuntu.com/questions/645818/how-to-install-certificates-for-command-line
+https://www.thomasvitale.com/https-spring-boot-ssl-certificate/
+
+
+https://github.com/ruchik-gaikwad/zuul-https-config-spring-boot-tomact/blob/master/http-https-zull-config-poc/src/main/java/com/stackroute/httphttpszullconfigpoc/configuration/zuulConfiguration.java
+
+---------------------------------------------------------------------------------------------------
+Kafka POC
+
+https://github.com/ruchik-gaikwad/spirng-boot-kafka-poc
+
+-------------------------------------
+JWT Authentication
+
+https://www.devglan.com/spring-security/angular-jwt-authentication
+---------------------------------------------------------------------------------------------------
+Git clone commands
+
+git clone https://github.com/stackroute/ibm-wave4-workpro.git 
+ls 
+cd ibm-wave4-workpro/ 
+git branch -a 
+git checkout v1.0.0 history
+
+----------------------------------------------------------------------------------------------------------------
+Other Git Commands
+
+git init
+git status
+git add .
+git status
+git commit -m "Commit Message"
+git remote origin(The command from repo)
+git push -u origin master
+
+
